@@ -1,7 +1,7 @@
 FROM debian:stretch
 # LABEL docker-virtualmin
 MAINTAINER cutech <cody@c-u-tech.com>
-ADD http://software.virtualmin.com/gpl/scripts/install.sh
+ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 ARG DEBIAN_FRONTEND=noninteractive
 RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 RUN apt-get update -y && apt-get upgrade -y && apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget && apt-get -y autoremove
