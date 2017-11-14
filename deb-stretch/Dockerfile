@@ -9,7 +9,7 @@ RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 # create root password from ARGs
 RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd 
 # install deps for virtualmin and ops
-RUN apt-get update -y 
+# RUN apt-get update -y 
 # RUN apt-get upgrade -y
 # RUN apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget
 # RUN apt-get -y autoremove
