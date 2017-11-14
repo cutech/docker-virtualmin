@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # turn off gzip for apt indexes
 RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 # create root password from ARGs
-# RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd 
+RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd 
 # install deps for virtualmin and ops
 # apt-get update -y && apt-get upgrade -y && apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget && apt-get -y autoremove
 # enable execution for the install script and start it with runtime ARGs (-f skip confirmation prompt and -n hostname defaulted)
