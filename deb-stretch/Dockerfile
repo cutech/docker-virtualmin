@@ -10,9 +10,9 @@ RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd 
 # install deps for virtualmin and ops
 RUN apt-get update -y 
-RUN apt-get upgrade -y
-RUN apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget
-RUN apt-get -y autoremove
+# RUN apt-get upgrade -y
+# RUN apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget
+# RUN apt-get -y autoremove
 # enable execution for the install script and start it with runtime ARGs (-f skip confirmation prompt and -n hostname defaulted)
 # RUN chmod +x /root/install.sh && sh /root/install.sh -f -n ${FQDN} ${UNINSTALL} ${SETUP} ${MINIMAL} ${BUNDLE} ${DISABLE}
 # install support packages for virtualmin
@@ -21,4 +21,4 @@ RUN apt-get -y autoremove
 EXPOSE 20 21 22 25 80 110 111 143 443 587 993 995 3306 10000 20000 38532 40259
 EXPOSE 53/udp 53/tcp
 # ENTRYPOINT ["service webmin start"]
-CMD ["screen", "-S", "ops", "-d", "-m", "bash", "-c", "\"/bin/bash\""]
+# CMD ["screen", "-S", "ops", "-d", "-m", "bash", "-c", "\"/bin/bash\""]
