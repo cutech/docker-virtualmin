@@ -1,7 +1,7 @@
 FROM debian:stretch
 # LABEL docker-virtualmin
 MAINTAINER cutech <cody@c-u-tech.com>
-ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
+copy install.sh /root
 # docker/rancher-compose.yml provides the ARGs ${FQDN} ${UNINSTALL} ${SETUP} ${MINIMAL} ${BUNDLE} ${DISABLE}
 ARG DEBIAN_FRONTEND=noninteractive
 # turn off gzip for apt indexes
