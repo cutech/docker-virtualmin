@@ -26,5 +26,5 @@ RUN chmod 4755 /usr/bin/procmail
 RUN sed -i 's/^# //'g resolv.conf && cat resolv.conf > /etc/resolv.conf 
 EXPOSE 20 21 22 25 80 110 111 143 443 587 993 995 3306 10000 20000 38532 40259
 EXPOSE 53/udp 53/tcp
-ENTRYPOINT ["service webmin start"]
+ENTRYPOINT ["service", "webmin", "start"]
 CMD ["screen", "-S", "ops", "-d", "-m", "bash", "-c", "\"/bin/bash\""]
