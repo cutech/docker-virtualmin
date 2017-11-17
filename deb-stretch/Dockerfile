@@ -5,7 +5,6 @@ ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 # Set x, turn off gzip for apt indexes, set HN to hostname -f
 RUN set -x
 RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
-RUN HN=`hostname -f | cut -f 1 -d "."`
 # create root password from ARGs
 RUN printf ${passwd}\n${PASSWD}\n | passwd 
 # install deps for virtualmin and ops
