@@ -4,8 +4,8 @@ MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 # Turn off gzip for apt indexes
 RUN set -x
-RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
-RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd
+# RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
+# RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd
 # RUN apt-get update
 # RUN apt-get upgrade -y
 # RUN apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget && apt-get -y autoremove
