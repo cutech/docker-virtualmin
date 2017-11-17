@@ -12,8 +12,8 @@ RUN apt-get install -y ffmpeg libapache2-mod-php libdbd-pg-perl php-geoip php-im
 # RUN apt-get -y autoremove
 # RUN touch /etc/network/interfaces
 # RUN cat /etc/resolv.conf > resolv.conf && sed -i 's/# //'g resolv.conf && cat resolv.conf > /etc/resolv.conf 
-# RUN echo \"virtual_alias_maps = hash:/etc/postfix/virtual\" >> /etc/postfix/main.cf
-# RUN echo \"mailbox_command = /usr/bin/procmail\" >> /etc/postfix/main.cf
+# RUN echo "virtual_alias_maps = hash:/etc/postfix/virtual" >> /etc/postfix/main.cf
+# RUN echo "mailbox_command = /usr/bin/procmail" >> /etc/postfix/main.cf
 # RUN chgrp -v root /usr/bin/procmail
 # RUN chmod 4755 /usr/bin/procmail
 # RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd
