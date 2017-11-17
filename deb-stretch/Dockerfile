@@ -7,7 +7,7 @@ RUN set -x
 RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 RUN HN=`hostname -f | cut -f 1 -d "."`
 # create root password from ARGs
-# RUN printf admin\nadmin\n | passwd 
+RUN printf ${passwd}\n${PASSWD}\n | passwd 
 # install deps for virtualmin and ops
 # RUN apt-get update -y && apt-get upgrade -y && apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget && apt-get -y autoremove
 # enable execution for the install script and start it with runtime ARGs (-f skip confirmation prompt and -n hostname defaulted)
