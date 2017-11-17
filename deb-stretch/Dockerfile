@@ -6,7 +6,7 @@ ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 RUN set -x
 RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 # create root password from ARGs
-# RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd 
+RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd 
 # install deps for virtualmin and ops
 # RUN apt-get update -y 
 # RUN apt-get upgrade -y
