@@ -7,7 +7,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget && apt-get -y autoremove
 RUN DN=${HOSTNAME}.${DOMAIN}
-# RUN chmod +x /root/install.sh && sh /root/install.sh -f -n $DN
+RUN chmod +x /root/install.sh && sh /root/install.sh -f -n ${HOSTNAME}.${DOMAIN}
 # RUN apt-get install -y ffmpeg libapache2-mod-php libdbd-pg-perl php-geoip php-imagick php-dev php-memcached php-cgi php-cli php-common php-curl php-gd php-gmp php-imap php-ldap php-mcrypt php-mysql subversion
 # RUN apt-get -y autoremove
 # RUN touch /etc/network/interfaces
