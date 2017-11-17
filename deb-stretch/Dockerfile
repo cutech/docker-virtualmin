@@ -4,7 +4,7 @@ ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 RUN set -x
 RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 RUN apt-get update
-# RUN apt-get upgrade -y
+RUN apt-get upgrade -y
 # RUN apt-get -y install apt-utils curl dialog gnupg gnupg2 gnupg1 nano perl postgresql postgresql-client procps screen sudo ssh wget && apt-get -y autoremove
 # RUN DN=${HOSTNAME}.${DOMAIN}
 # RUN chmod +x /root/install.sh && sh /root/install.sh -f -n $DN
