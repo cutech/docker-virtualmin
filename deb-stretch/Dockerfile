@@ -4,7 +4,7 @@ MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 # Turn off gzip for apt indexes
 RUN set -x
-# RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
+RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 # RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd
 # RUN apt-get update
 # RUN apt-get upgrade -y
