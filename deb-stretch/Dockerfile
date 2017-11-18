@@ -21,4 +21,4 @@ RUN chgrp -v root /usr/bin/procmail
 RUN chmod 4755 /usr/bin/procmail
 EXPOSE 20 21 22 25 53 53/udp 80 110 111 143 443 587 993 995 3306 10000 20000 38532 40259
 ENTRYPOINT ["service", "webmin", "start"]
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
