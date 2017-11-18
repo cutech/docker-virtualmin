@@ -5,7 +5,7 @@ ARG PASSWD=${PASSWD}
 ENV PASSWD=${PASSWD}
 USER root
 RUN set -x \
-&& export PASSWD=${PASSWD} && printf ${PASSWD}\\n${PASSWD}\\n | passwd \
+&& printf ${PASSWD}\\n${PASSWD}\\n | passwd \
 && sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes \
 && apt-get update \
 && apt-get upgrade -y \
