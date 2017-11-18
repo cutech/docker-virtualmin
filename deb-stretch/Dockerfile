@@ -2,8 +2,8 @@ FROM debian:stretch
 MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 USER root
-ENV PASSWD ${PASSWD}
-RUN set -x
+# ENV PASSWD ${PASSWD}
+# RUN set -x
 RUN printf ${PASSWD}\\n${PASSWD}\\n >> pw.txt
 # RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd
 # RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
