@@ -3,7 +3,7 @@ MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 USER root
 RUN set -x
-# RUN printf ${PASSWD}\n${PASSWD}\n | passwd
+RUN printf ${PASSWD}\\n${PASSWD}\\n | passwd
 # RUN sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes
 # RUN apt-get update
 # RUN apt-get upgrade -y
@@ -23,4 +23,4 @@ RUN set -x
 EXPOSE 20 21 22 25 53 53/udp 80 110 111 143 443 587 993 995 3306 10000 20000 38532 40259
 # ENTRYPOINT ["service", "webmin", "start"]
 # CMD ["screen", "-dmS", "ops", "/bin/bash" "-c", "\"/bin/bash\""]
-# ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
