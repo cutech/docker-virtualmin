@@ -4,7 +4,7 @@ ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
 ARG PASSWD=${PASSWD}
 USER root
 RUN set -x \
-&& printf ${PASSWD}\\n${PASSWD}\\n | passwd \
+&& export PASSWD=${PASSWD} && printf ${PASSWD}\\n${PASSWD}\\n | passwd \
 && sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes \
 && apt-get update \
 && apt-get upgrade -y \
