@@ -1,6 +1,7 @@
 FROM debian:stretch
 MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
+ADD cmd.sh /root
 ARG PASSWD=${PASSWD}
 ENV PASSWD=${PASSWD}
 USER root
@@ -22,5 +23,5 @@ RUN cat /etc/resolv.conf > resolv.conf \
 && chgrp -v root /usr/bin/procmail \
 && chmod 4755 /usr/bin/procmail
 EXPOSE 20 21 22 25 53 53/udp 80 110 111 143 443 587 993 995 3306 10000 20000 38532 40259
-#ENTRYPOINT ["service", "webmin", "start"]
-#CMD ["/bin/bash", "-c", "printf ${PASSWD}\\\\n${PASSWD}\\\\n | passwd && screen -dmS ops -c \"/bin/bash\""]
+ENTRYPOINT ["service", "webmin", "start"]
+CMD ["/bin/bash", "-c", "./root/cmd.sh"]
