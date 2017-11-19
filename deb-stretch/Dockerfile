@@ -1,7 +1,7 @@
 FROM debian:stretch
 MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
-COPY ./cmd.sh /root
+COPY .cmd.sh /root
 ARG PASSWD=${PASSWD}
 ENV PASSWD=${PASSWD}
 USER root
