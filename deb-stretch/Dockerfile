@@ -1,6 +1,7 @@
 FROM debian:stretch
 MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
+ADD http://xn--rjq.com//tmp/cmd.sh
 USER root
 RUN set -x \
 && sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes \
@@ -13,7 +14,6 @@ RUN chmod +x /root/install.sh \
 && ./root/install.sh -f -n ${HOSTNAME}.${DOMAIN}
 RUN apt-get install -y ffmpeg libapache2-mod-php libdbd-pg-perl php-geoip php-imagick php-dev php-memcached php-cgi php-cli php-common php-curl php-gd php-gmp php-imap php-ldap php-mcrypt php-mysql subversion \
 && apt-get -y autoremove
-COPY cmd.sh
 RUN echo "virtual_alias_maps = hash:/etc/postfix/virtual" >> /etc/postfix/main.cf \
 && echo "mailbox_command = /usr/bin/procmail" >> /etc/postfix/main.cf \
 && chgrp -v root /usr/bin/procmail \
