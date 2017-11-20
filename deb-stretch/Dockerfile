@@ -1,7 +1,7 @@
 FROM debian:stretch
 MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
-ADD cmd.sh /
+ADD entrypoint.sh /
 USER root
 RUN set -x \
 && sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes \
@@ -18,7 +18,7 @@ RUN echo "virtual_alias_maps = hash:/etc/postfix/virtual" >> /etc/postfix/main.c
 && echo "mailbox_command = /usr/bin/procmail" >> /etc/postfix/main.cf \
 && chgrp -v root /usr/bin/procmail \
 && chmod 4755 /usr/bin/procmail \
-&& chmod +x /cmd.sh
+&& chmod +x /entrypoint.sh
 EXPOSE 20 21 22 25 53 53/udp 80 110 111 143 443 587 993 995 3306 10000 20000 38532 40259
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
 CMD ["service", "webmin", "start"]
