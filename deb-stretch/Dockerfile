@@ -21,4 +21,4 @@ RUN echo "virtual_alias_maps = hash:/etc/postfix/virtual" >> /etc/postfix/main.c
 && chmod +x /cmd.sh
 EXPOSE 20 21 22 25 53 53/udp 80 110 111 143 443 587 993 995 3306 10000 20000 38532 40259
 ENTRYPOINT ["./cmd.sh"]
-CMD service webmin start
+CMD ["service", "webmin", "start"]
