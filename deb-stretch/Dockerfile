@@ -1,7 +1,7 @@
 FROM debian:stretch
 MAINTAINER cutech <cody@c-u-tech.com>
 ADD http://software.virtualmin.com/gpl/scripts/install.sh /root
-ADD entrypoint.sh /
+ADD .entrypoint.sh /
 USER root
 RUN set -x \
 && sed -i s/true/false/ /etc/apt/apt.conf.d/docker-gzip-indexes \
